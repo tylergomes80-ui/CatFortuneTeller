@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat Fortune Teller 🐱🔮</title>
+<style>
+    body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background: linear-gradient(135deg, #ffb347, #ffcc33);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    h1 {
+        font-size: 3em;
+        color: #4b0082;
+        text-shadow: 2px 2px #fff;
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 10px;
+        background-color: #ff69b4;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    button:hover {
+        transform: scale(1.1);
+    }
+    p {
+        font-size: 1.8em;
+        color: #2e0854;
+        margin-top: 30px;
+        text-align: center;
+    }
+    img {
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        box-shadow: 0 0 20px #ff69b4;
+    }
+</style>
+</head>
+<body>
+
+<h1>Cat Fortune Teller 🐱🔮</h1>
+<img src="https://cataas.com/cat/says/Hello!" alt="Random Cat" id="catImage">
+<button onclick="tellFortune()">Get Your Fortune</button>
+<p id="fortuneText">Click the button to reveal your destiny!</p>
+
+<script>
+    const fortunes = [
+        "You will find a dollar on the street today!",
+        "A mysterious stranger will bring you joy.",
+        "Your cat knows more than you think.",
+        "Adventure is just around the corner.",
+        "Beware of unexpected naps.",
+        "You will discover a hidden talent today!",
+        "Something fluffy will make you smile."
+    ];
+
+    function tellFortune() {
+        const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+        document.getElementById('fortuneText').textContent = randomFortune;
+        // Change cat image randomly
+        document.getElementById('catImage').src = `https://cataas.com/cat/says/${encodeURIComponent(randomFortune.split(' ')[0])}?${Date.now()}`;
+    }
+</script>
+
+</body>
+</html>
